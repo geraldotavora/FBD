@@ -145,7 +145,7 @@ public class UsuarioDAO {
 				String email = rs.getString("email");
 				String genero = rs.getString("tipo_preferido");
 				String ator = rs.getString("ator_preferido");
-				String end = rs.getString("endereco");
+				String end  = rs.getString("endereco");
 				
 				Usuario user = new Usuario(id, nome, email, end, genero, ator);
 				listUser.add(user);
