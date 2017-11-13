@@ -3,15 +3,15 @@ package br.com.quixada.ufc.recfilme.pojo;
 public class Filme {
 	private Integer idfilme;
 	private String nomefilme;
-	private Tipo_Filme tipo;
-	private Ator principal;
-	private Ator coadjuvante;
+	private String tipo;
+	private String principal;
+	private String coadjuvante;
 	private String duracao;
-	private Diretor diretor;
+	private String diretor;
 	private String lancamento;
 	
-	public Filme(Integer idfilme, String nomefilme, Tipo_Filme tipo, Ator principal, Ator coadjuvante, String duracao,
-			Diretor diretor, String lancamento) {
+	public Filme(Integer idfilme, String nomefilme, String tipo, String principal, String coadjuvante, String duracao,
+			String diretor, String lancamento) {
 		super();
 		this.idfilme = idfilme;
 		this.nomefilme = nomefilme;
@@ -23,7 +23,7 @@ public class Filme {
 		this.lancamento = lancamento;
 	}
 	
-	public Filme(String nomefilme, Tipo_Filme tipo, Ator principal, Ator coadjuvante, String duracao, Diretor diretor,
+	public Filme(String nomefilme, String tipo, String principal, String coadjuvante, String duracao, String diretor,
 			String lancamento) {
 		super();
 		this.nomefilme = nomefilme;
@@ -46,22 +46,22 @@ public class Filme {
 	public void setNomefilme(String nomefilme) {
 		this.nomefilme = nomefilme;
 	}
-	public Tipo_Filme getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(Tipo_Filme tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Ator getPrincipal() {
+	public String getPrincipal() {
 		return principal;
 	}
-	public void setPrincipal(Ator principal) {
+	public void setPrincipal(String principal) {
 		this.principal = principal;
 	}
-	public Ator getCoadjuvante() {
+	public String getCoadjuvante() {
 		return coadjuvante;
 	}
-	public void setCoadjuvante(Ator coadjuvante) {
+	public void setCoadjuvante(String coadjuvante) {
 		this.coadjuvante = coadjuvante;
 	}
 	public String getDuracao() {
@@ -70,10 +70,10 @@ public class Filme {
 	public void setDuracao(String duracao) {
 		this.duracao = duracao;
 	}
-	public Diretor getDiretor() {
+	public String getDiretor() {
 		return diretor;
 	}
-	public void setDiretor(Diretor diretor) {
+	public void setDiretor(String diretor) {
 		this.diretor = diretor;
 	}
 	public String getLancamento() {

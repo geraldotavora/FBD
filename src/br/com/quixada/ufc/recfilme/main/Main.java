@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import br.com.quixada.ufc.recfilme.dao.UsuarioDAO;
-import br.com.quixada.ufc.recfilme.pojo.Tipo_Filme;
 import br.com.quixada.ufc.recfilme.pojo.Usuario;
 
 public class Main {

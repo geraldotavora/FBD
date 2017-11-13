@@ -5,10 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
 import br.com.quixada.ufc.recfilme.jdbc.ConnectionFactory;
-import br.com.quixada.ufc.recfilme.pojo.Tipo_Filme;
 import br.com.quixada.ufc.recfilme.pojo.Usuario;
 
 public class UsuarioDAO {
