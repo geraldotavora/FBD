@@ -15,10 +15,16 @@ public class UsuarioDAO {
 	
 	public boolean addUser(Usuario user) {
 		String sql = "INSERT INTO Usuario (nome, email, endereco, tipo_preferido, ator_preferido) VALUES (?, ?, ?, ?, ?)";
+		String in_gen = "INSERT INTO tipofilme (genero) VALUES (?)";
+		String ator = "INSERT INTO ator (nome) VALUES (?)";
+		
 		this.con = new ConnectionFactory().getConnection();
 		
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
+			PreparedStatement stmtt = con.prepareStatement(in_gen);
+			PreparedStatement stmta = con.prepareStatement(ator);
+			
 			stmt.setString(1, user.getNome());
 			stmt.setString(2, user.getEmail());
 			stmt.setString(3, user.getEndereco());
@@ -26,7 +32,16 @@ public class UsuarioDAO {
 			stmt.setString(5, user.getAtor_pref());
 			
 			int qtdAffect = stmt.executeUpdate();
+			
 			stmt.close();
+			
+			stmtt.setString(1, user.getGenero());
+			stmtt.executeUpdate();
+			stmtt.close();
+			stmta.setString(1, user.getAtor_pref());
+			stmta.executeUpdate();
+			stmta.close();
+			
 			
 			if(qtdAffect > 0) {
 				return true;
@@ -104,7 +119,7 @@ public class UsuarioDAO {
 	}
 	
 	public Usuario userByName(String name) {
-		String sql = "SELECT * FROM Usuario where nome like '?%'";
+		String sql = "SELECT * FROM Usuario where usuario.nome like ?";
 		this.con = new ConnectionFactory().getConnection();
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -112,12 +127,11 @@ public class UsuarioDAO {
 			ResultSet rs = stmt.executeQuery();
 			rs.next();
 			Usuario user = new Usuario(rs.getInt("idusuario"), name, rs.getString("email"), rs.getString("endereco"),
-					rs.getString("genero"), rs.getString("ator_pref"));
+					rs.getString("tipo_preferido"), rs.getString("ator_preferido"));			
 			stmt.close();
 			return user;
-					
 		}catch(SQLException e) {
-			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}finally {
 			try {
 				this.con.close();
@@ -125,7 +139,7 @@ public class UsuarioDAO {
 				e.printStackTrace();
 			}
 		}
-		
+		System.out.println("nao encontrado");
 		return null;
 		
 	}

@@ -61,6 +61,12 @@ public class Main {
 					for(Usuario us : userlist)
 						System.out.println(us.toString());
 				break;
+			case 5:
+				System.out.println("Digite o nome:");
+				String nomeuser = scan.nextLine();
+				Usuario us = userDAO.userByName(nomeuser);
+				System.out.println(us.getNome()+us.getGenero());
+				break;
 			default:
 				System.out.println("Opcao invalida");
 				break;
